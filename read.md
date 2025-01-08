@@ -13,3 +13,7 @@ for typology error allow all ip for data base
 npm install axios
 
 npm install mongoose
+
+using heroicons
+
+install multiparty for form data to upload images
