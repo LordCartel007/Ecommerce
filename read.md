@@ -17,3 +17,11 @@ npm install mongoose
 using heroicons
 
 install multiparty for form data to upload images
+
+install @aws-sdk/client-s3 amazon s3 storage bucket
+
+install mine types to read a file type when uploading image
+
+npm i spinners-react
+
+npm i react sortable to be able to dray images
