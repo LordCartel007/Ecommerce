@@ -25,3 +25,5 @@ install mine types to read a file type when uploading image
 npm i spinners-react
 
 npm i react sortable to be able to dray images
+
+npm i react-sweetalert2 for fine alerts

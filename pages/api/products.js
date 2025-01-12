@@ -16,21 +16,25 @@ export default async function handle(req, res) {
 
   // adding product to backend
   if (method === "POST") {
-    const { title, description, price, images } = req.body;
+    const { title, description, price, images, category } = req.body;
     const productDoc = await Product.create({
       title,
       description,
       price,
       images,
+      category,
     });
     res.json(productDoc);
   }
 
   // updating product
   if (method === "PUT") {
-    const { title, description, price, images, _id } = req.body;
+    const { title, description, price, images, category, _id } = req.body;
 
-    await Product.updateOne({ _id }, { title, description, price, images });
+    await Product.updateOne(
+      { _id },
+      { title, description, price, images, category }
+    );
     res.json(true);
   }
   if (method === "DELETE") {
