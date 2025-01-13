@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 
 import GoogleProvider from "next-auth/providers/google";
 
-const adminEmails = ["cartellord77@gmail.com"];
+const adminEmails = ["cartellord010@gmail.com"];
 
 export const authOptions = {
   providers: [
@@ -33,8 +33,7 @@ export default NextAuth(authOptions);
 export async function isAdminRequest(req, res) {
   const session = await getServerSession(req, res, authOptions);
   if (!adminEmails.includes(session?.user?.email)) {
-    res.status(401);
-    res.end();
-    throw "not an admin";
+    res.status(401).end("Unauthorized");
+    throw new Error("not an admin");
   }
 }
