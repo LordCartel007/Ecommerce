@@ -6,6 +6,7 @@ const ProductSchema = new Schema({
   price: { type: Number, required: true },
   images: [{ type: String }],
   category: { type: mongoose.Types.ObjectId, ref: "Category" },
+  properties: { type: Object },
 });
 
 // using the models.product object to avoid recompiling the model
