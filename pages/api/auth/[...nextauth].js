@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 
 import GoogleProvider from "next-auth/providers/google";
 
-const adminEmails = "cartellord010@gmail.com";
+// const adminEmails = [];
 
 export const authOptions = {
   providers: [
@@ -19,32 +19,22 @@ export const authOptions = {
   adapter: MongoDBAdapter(client),
   callbacks: {
     session: ({ session, token, user }) => {
-      if (adminEmails.includes(session?.user?.email)) {
-        return session;
-      } else {
-        return false;
-      }
+      // if (adminEmails.includes(session?.user?.email)) {
+      return session;
+      // } else {
+      //   return false;
+      // }
     },
   },
-
-  // callbacks: {
-  //   async signIn({ user }) {
-  //     // If no adminEmails are set, allow all
-  //     if (adminEmails.length === 0) {
-  //       return true;
-  //     }
-  //     // Otherwise, restrict to specific emails
-  //     return adminEmails.includes(user.email);
-  //   },
-  // },
 };
 export default NextAuth(authOptions);
 
-// security measures here
+// security measures
 export async function isAdminRequest(req, res) {
   const session = await getServerSession(req, res, authOptions);
-  if (!adminEmails.includes(session?.user?.email)) {
-    res.status(401).end("Unauthorized");
-    throw new Error("not an admin");
-  }
+  // if (!adminEmails.includes(session?.user?.email)) {
+  //   res.status(401).end("Unauthorized");
+  //   throw new Error("not an admin");
+  // }
+  return session;
 }
