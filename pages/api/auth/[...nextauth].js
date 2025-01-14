@@ -17,26 +17,26 @@ export const authOptions = {
     }),
   ],
   adapter: MongoDBAdapter(client),
-  // callbacks: {
-  //   session: ({ session, token, user }) => {
-  //     if (adminEmails.includes(session?.user?.email)) {
-  //       return session;
-  //     } else {
-  //       return false;
-  //     }
-  //   },
-  // },
-
   callbacks: {
-    async signIn({ user }) {
-      // If no adminEmails are set, allow all
-      if (adminEmails.length === 0) {
-        return true;
+    session: ({ session, token, user }) => {
+      if (adminEmails.includes(session?.user?.email)) {
+        return session;
+      } else {
+        return false;
       }
-      // Otherwise, restrict to specific emails
-      return adminEmails.includes(user.email);
     },
   },
+
+  // callbacks: {
+  //   async signIn({ user }) {
+  //     // If no adminEmails are set, allow all
+  //     if (adminEmails.length === 0) {
+  //       return true;
+  //     }
+  //     // Otherwise, restrict to specific emails
+  //     return adminEmails.includes(user.email);
+  //   },
+  // },
 };
 export default NextAuth(authOptions);
 
