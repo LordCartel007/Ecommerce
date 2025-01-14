@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 
 import GoogleProvider from "next-auth/providers/google";
 
-const adminEmails = [];
+const adminEmails = "cartellord010@gmail.com";
 
 export const authOptions = {
   providers: [
