@@ -44,6 +44,7 @@ import NextAuth from "next-auth";
 import client from "../../../lib/mongodb.js";
 import { getServerSession } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+// new coomment
 
 const adminEmails = ["cartellord77@gmail.com", "admin2@example.com"];
 
