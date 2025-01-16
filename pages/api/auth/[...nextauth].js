@@ -37,5 +37,6 @@ export async function isAdminRequest(req, res) {
   //   res.status(401).end("Unauthorized");
   //   throw new Error("not an admin");
   // }
+  return res.status(400).json({ success: false, errors: errors.array() });
   return session;
 }
