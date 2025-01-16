@@ -17,6 +17,7 @@ export const authOptions = {
     }),
   ],
   adapter: MongoDBAdapter(client),
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     session: ({ session, token, user }) => {
       // if (adminEmails.includes(session?.user?.email)) {
