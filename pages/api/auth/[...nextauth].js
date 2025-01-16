@@ -25,6 +25,7 @@ export const authOptions = {
       //   return false;
       // }
     },
+    debug: true, // Enable detailed logging
   },
 };
 export default NextAuth(authOptions);
